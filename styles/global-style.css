@@ -1,0 +1,346 @@
+/* Vars */
+:root {
+    --global-background-color: 34, 40, 35;
+    --header-background-color: 43, 50, 44;
+
+    --default-font-color: 211, 211, 211;
+    --hover-font-color: 244, 244, 244;
+    --fullwhite-font-color: 255, 255, 255;
+    --muted-font-color: 196, 196, 196;
+    --link-font-color-1: 36, 132, 255;
+    --link-font-color-2: 73, 184, 255;
+    
+    --accent-color-1: 159, 255, 211;
+    --accent-color-2: 159, 211, 255;
+
+    --navbar-gradient-1: 21, 79, 40;
+    --navbar-gradient-2: 27, 94, 55;
+    
+    --sidebar-size: 130px;
+    --sidebar-hover-size: 200px;
+    
+    --fonts: var(--fonts-bs);
+    --fonts-bs: BS Static Regular, BS_Static_Regular, Bahnschrift Regular, Bahnschrift, "BS Static Regular";
+    --fonts-bs-light: BS Static Light, BS_Static_Light, Bahnschrift Light, "BS Static Light";;
+    --fonts-cp: Chakra Petch, Chakra Petch Regular, Chakra_Petch, Chakra_Petch_Regular, Chakra Petch Regular 400, "CP Regular";
+    --fonts-mono: OCR A Extended, OCR A EXT, OCRAEXT, OCR A, OCRA, OCR-A, "OCR-A Extended Regular";
+}
+
+/* Fonts */
+@font-face {
+    font-family: "BS Static Regular";
+    src: url(../fonts/BS_Static_Regular.ttf);
+}
+@font-face {
+    font-family: "BS Static Light";
+    src: url(../fonts/BS_Static_Light.ttf);
+}
+@font-face {
+    font-family: "CP Regular";
+    src: url(../fonts/Chakra%20Petch%20Regular%20400.ttf);
+}
+@font-face {
+    font-family: "OCR A Extended Regular";
+    src: url(../fonts/OCRAEXT.TTF);
+}
+
+/* Style */
+body {
+    background-color: rgb(var(--global-background-color));
+    color: rgb(var(--default-font-color));
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--fonts-bs-light);
+}
+#center {
+    margin-left: calc(var(--sidebar-size) + 30px);
+}
+p {
+    display: inline-block;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+a,
+a:active,
+a:focus,
+a:visited {
+    color: rgb(var(--link-font-color-1));
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 200ms ease-in;
+}
+a:hover {
+    color: rgb(var(--link-font-color-2));
+    text-decoration: underline;
+    transition: color 200ms ease-out;
+}
+nav#sidebar {
+    background-image: linear-gradient(0deg, rgb(var(--navbar-gradient-1)), rgb(var(--navbar-gradient-2)));
+    overflow: hidden;
+    padding: 15px;
+    margin: 0;
+    height: 100%;
+    width: var(--sidebar-size);
+    opacity: 80%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    transition: 400ms ease;
+    transition-property: width, opacity;
+    box-shadow: 0 0 6px #000d;
+}
+nav#sidebar:hover {
+    width: var(--sidebar-hover-size);
+    opacity: 100%;
+    transition: 400ms ease;
+    transition-property: width, opacity;
+}
+nav#sidebar * {
+    display: block;
+    white-space: nowrap;
+}
+nav#sidebar a {
+    margin-left: 6px;
+}
+nav#sidebar a:before {
+    content: "# ";
+    font-weight: 900;
+    opacity: 60%;
+}
+nav#sidebar a,
+nav#sidebar a:visited {
+    color: rgb(var(--default-font-color));
+    transition: 200ms ease-in;
+    transition-property: color, margin-left;
+    text-decoration: none;
+}
+nav#sidebar a:active,
+nav#sidebar a:focus,
+nav#sidebar a:hover {
+    color: rgb(var(--hover-font-color));
+    transition: 200ms ease-out;
+    transition-property: color, margin-left;
+    margin-left: 9px;
+}
+.sidebar-header {
+    font-weight: 900;
+    margin-bottom: 6px;
+    cursor: default;
+    font-family: var(--fonts-bs);
+}
+.sidebar-h1 {
+    font-size: 20px;
+    color: rgb(var(--accent-color-1));
+}
+.sidebar-h2 {
+    font-size: 18px;
+    color: rgb(var(--accent-color-2));
+    margin-top: 4px;
+}
+.sidebar-h4 {
+    font-size: 12px;
+    color: rgba(var(--muted-font-color), 0.7);
+    margin-top: 4px;
+    margin-top: 8px;
+    text-transform: uppercase;
+    transition: color 200ms ease-in;
+}
+.sidebar-h4:hover {
+    color: rgba(var(--muted-font-color), 0.9);
+    transition: color 200ms ease-out;
+}
+.with-tag:after {
+    content: "#5571";
+    font-weight: 400;
+    font-size: 12px;
+    color: rgba(var(--muted-font-color), 0.7);
+}
+nav#sidebar a.sidebar-link-selected {
+    color: rgb(var(--fullwhite-font-color));
+    font-family: var(--fonts-bs);
+    margin-left: 9px;
+}
+nav#sidebar a.sidebar-link-selected:before {
+    opacity: 80%;
+}
+.favicon {
+    max-width: 24px;
+    max-height: 24px;
+    border-radius: 50%;
+    display: inline-block !important;
+    position: fixed;
+}
+.sidebar-header.with-favicon {
+    margin-left: 30px;
+}
+.forced-inline {
+    display: inline !important;
+}
+#body-header {
+    width: calc(100% - 32px);
+    background-color: rgb(var(--header-background-color));
+    padding: 0 16px;
+    box-shadow: 0 0 5px #000a;
+    margin-bottom: 16px;
+    min-height: 40px;
+    /*position: fixed;*/
+}
+#body-header * {
+    cursor: default;
+    display: inline;
+    white-space: pre-line;
+}
+.page-name {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 40px;
+    color: rgb(var(--fullwhite-font-color));
+    font-family: var(--fonts-bs);
+}
+.page-name:before {
+    content: "# ";
+    opacity: 70%;
+}
+.cp-font {
+    font-family: var(--fonts-cp) !important;
+}
+#body-header .page-name:after {
+    content: "|";
+    color: rgba(var(--muted-font-color), 0.8);
+    font-weight: 100;
+    padding-left: 10px;
+    padding-right: 8px;
+}
+#body-center {
+    margin: 0 25px;
+    padding-bottom: 20px;
+}
+.text-green {
+    color: rgb(var(--accent-color-1)) !important;
+}
+.text-blue {
+    color: rgb(var(--accent-color-2)) !important;
+}
+.text-red {
+    color: rgb(255, 31, 31) !important;
+}
+.text-yellow {
+    color: rgb(255, 255, 31) !important;
+}
+div[class*="text-"] {
+    display: inline;
+}
+.text-align-center {
+    text-align: center;
+}
+.cursor-not-allowed {
+    cursor: not-allowed;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    cursor: default;
+}
+h1,
+h2 {
+    border-bottom: solid 1px rgb(255, 255, 255, 0.15);
+    padding-bottom: 4px;
+    font-family: var(--fonts-bs);
+}
+h1.text-green,
+h2.text-green {
+    border-bottom-color: rgb(var(--accent-color-1), 0.3);
+}
+h1.text-blue,
+h2.text-blue {
+    border-bottom-color: rgb(var(--accent-color-2), 0.3);
+}
+code,
+pre {
+    font-family: var(--fonts-mono);
+}
+pre {
+    text-align: left;
+    color: rgb(var(--default-font-color));
+    padding-top: 1.1em;
+    padding-left: 1.1em;
+    padding-bottom: 1.1em;
+    overflow: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background-color: #202225;
+    max-height: calc(100vh - 80px);
+    outline-style: solid;
+    outline-color: #363651;
+    outline-width: 1px;
+    -moz-outline-radius: 0.3em;
+    font-size: 13px;
+}
+pre::-webkit-scrollbar-track {
+    background-color: rgb(0, 0, 0, 0);
+}
+pre::-webkit-scrollbar-corner {
+    background-color: rgb(0, 0, 0, 0);
+}
+li {
+    margin-bottom: 8px;
+}
+iframe.youtube-embed-video {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    box-shadow: 0 0 6px #0005;
+}
+.attachment {
+    border-radius: 6px;
+    box-shadow: 0 0 6px #000a;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    transition: 400ms ease !important;
+    transition-property: box-shadow, border-radius !important;
+}
+.attachment:hover {
+    border-radius: 3px;
+    box-shadow: 0 0 6px #000e;
+}
+#discord-addons-logo {
+    max-width: 128px;
+    max-height: 128px;
+}
+/* Text selection */
+::-moz-selection {
+    color: rgb(var(--fullwhite-font-color));
+    background: rgb(var(--accent-color-1));
+}
+::selection {
+    color: rgb(var(--fullwhite-font-color));
+    background: rgb(var(--accent-color-1));
+}
+
+/* Scrollbar */
+/* Width */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+/* Background */
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+    background: rgb(26, 31, 27);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(48, 55, 49);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(57, 66, 58);
+}
+::-webkit-scrollbar-thumb:active {
+    background: rgb(11, 14, 11);
+}
