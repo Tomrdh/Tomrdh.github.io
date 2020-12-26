@@ -1,5 +1,6 @@
-# Website in development
+# TomRdh Main Website
 
-Please wait until the first release of the website. It will be released soon. Also, maybe some things will be moved from [Discord Addons](https://tomrdh.github.io/da-website/main) to here.
+Welcome to the Tom's main website!
 
-[View Source](https://github.com/Tomrdh/tomrdh.github.io)
+- [Main page](https://tomrdh.github.io/main-page)
+- [View Source](https://github.com/Tomrdh/tomrdh.github.io)
