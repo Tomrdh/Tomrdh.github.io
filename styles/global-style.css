@@ -153,7 +153,7 @@ nav#sidebar a:hover {
     transition: color 200ms ease-out;
 }
 .with-tag:after {
-    content: "#5571";
+    content: " 18Box#5571";
     font-weight: 400;
     font-size: 12px;
     color: rgba(var(--muted-font-color), 0.7);
